@@ -4,28 +4,36 @@
 #include <iostream>
 #include <string>
 
-template <typename T1 >
-
+template <typename T >
 class myVector
 {
 private:
-	T1 m_vector;
-	
+	T m_vector;
+	int capacity;
+	int size;
+	bool empty;
 public:
 	/* Constructor that initilize member variables */
-	myVector(const T1& vect1)
+	myVector(const T& vecT)
 	{
-		m_vector = vect1;
+		m_vector = vecT;
 	}
-	~myVector()
+	virtual ~myVector()
 	{
 		delete[] m_vector;
 	}
 	/* Function declaration */
 	/**************************************************************************/
-	T1 GetObj() { return vector1; } /* return the object vector created on the stack*/ 
-	/* TODO*/
-	/* Put all other function required for the APP here */
-
-
+	T GetObj() { return m_vector; } /* return the object vector created on the stack*/ 
+	bool clear();
+	bool insert(T member);   /* Define as a template*/
+	bool push_back(T element);
+	bool pop_back(T element);
+	bool resize();
+	T operator[](const m_vector& other)const;
+	T operator++(const m_vector& other)const;
+	T operator--(const m_vector& other)const;
+	T operator+=(const m_vector& member)const;
+	T operator-=(const m_vector& member)const;
+	T operator<<(const m_vector& member)const;
 };
