@@ -8,15 +8,15 @@ template <typename T >
 class myVector
 {
 private:
-	T m_vector;
-	int capacity;
-	int size;
-	bool empty;
+	T *m_vector;
+	int capacity = 1;
+	int size = 0;
+	bool empty = false;
 public:
 	/* Constructor that initilize member variables */
-	myVector(const T& vecT)
+	myVector()
 	{
-		m_vector = vecT;
+		m_vector = new T[1] ;
 	}
 	virtual ~myVector()
 	{
@@ -24,16 +24,17 @@ public:
 	}
 	/* Function declaration */
 	/**************************************************************************/
-	T GetObj() { return m_vector; } /* return the object vector created on the stack*/ 
+	myVector<T> getObj(); /* return the object vector created on the stack*/
+	int getCapacity(myVector<T>  *m_vector);
 	bool clear();
 	bool insert(T member);   /* Define as a template*/
 	bool push_back(T element);
 	bool pop_back(T element);
 	bool resize();
-	T operator[](const m_vector& other)const;
-	T operator++(const m_vector& other)const;
-	T operator--(const m_vector& other)const;
-	T operator+=(const m_vector& member)const;
-	T operator-=(const m_vector& member)const;
-	T operator<<(const m_vector& member)const;
+	myVector<T> operator[](T m_vector);
+	myVector<T> operator++(T m_vector);
+	myVector<T> operator--(T m_vector);
+	myVector<T> operator+=(T m_vector);
+	myVector<T> operator-=(T m_vector);
+	myVector<T> operator<<(T m_vector);
 };
