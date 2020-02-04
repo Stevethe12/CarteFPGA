@@ -2,10 +2,15 @@
 //
 
 #include <iostream>
+#include "myVector.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	myVector<int>* tab;
+	tab = new myVector<int>();
+    //std::cout << tab[1] << std::endl;
+
+	return 0;
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
